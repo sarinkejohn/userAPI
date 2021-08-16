@@ -113,7 +113,7 @@ module.exports = {
         const result = compareSync(data.password, results[0].password); 
         if (result) {
             results.password = undefined;
-            const jsonwebtoken = sign ({result:results},"qwe1234", {
+            const jsonwebtoken = sign ({result:results},process.env.TOKEN, {
                 expiresIn : "1h"
             });
             return res.json({
